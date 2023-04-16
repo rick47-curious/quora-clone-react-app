@@ -1,0 +1,23 @@
+{
+  "name": "quora-clone",
+  "version": "1.0.0",
+  "description": "A react-node based Quora clone app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./server/index.js"
+  },
+  "keywords": [],
+  "author": "Anuplab Chatterjee",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.15.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
