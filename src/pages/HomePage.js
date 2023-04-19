@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Navbar } from '../components/Navbar'
 import { Posts } from '../components/Posts'
-
+import './css/Homepage.css'
 export const HomePage = () => {
     const [buttonClicked,setActiveContainer] = useState(null);
     const [originalOpacity,setOpacity] = useState();
@@ -12,9 +12,8 @@ export const HomePage = () => {
       setOpacity(num);
     }
   return (
-    <div className='main-container'>
+    <div className='post-container'>
         <Navbar activeTab={buttonClicked} opaque={originalOpacity} makeOpaque={handleOpacity} onTabClick={handleContainerView}/>
-        {/* Array.map with backend json array */}
         <Posts activeTab={buttonClicked} opaque={originalOpacity} makeOpaque={handleOpacity} onTabClick={handleContainerView}/>
     </div>
   )

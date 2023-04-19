@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import { Navbar } from './components/Navbar';
 import { HomePage } from './pages/HomePage';
+import { Authentication } from './pages/Authentication';
 
 function App() {
 
@@ -10,7 +10,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route element={<HomePage/>} path='/'/>
+          <Route element={<Authentication/>} path='/'/>
+          <Route element={<HomePage/>} path='/homepage'/>
         </Routes>
       </BrowserRouter>
     </div>
