@@ -1,7 +1,69 @@
 import React from 'react'
 import './css/Authentication.css'
+import {useForm} from 'react-hook-form'
 
 export const Authentication = () => {
+const {register,handleSubmit,formState:{errors}} = useForm();
+const { 
+  register: register2,
+  handleSubmit: handleSubmit2,
+  watch,
+  formState: { errors: errors2 } 
+} = useForm();
+
+const fulFillLogin = (data)=>{window.location.href="/homepage"}
+const fulFillRegistration = (data)=>{window.location.href="/homepage"}
+const handleLoginErrors = ()=>{}
+const handleRegistrationErrors = ()=>{}
+const requiredOptions = {
+    email:{required: "Email is required",
+    pattern:{
+      value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+      message:"Invalid Email"
+    }},
+    loginPassword:{required: "Password is required",
+    minLength:{
+        value:8,
+        message:'Password should be atleast 8 characters'
+    }
+  }
+}
+const password = React.useRef({});
+password.current = watch("password", "");
+
+const registerOptions = {
+  userName:{required:"Username is required",
+  pattern:{
+    value:/^[a-zA-Z]+$/,
+    message: "Enter valid Username"
+  }},
+  email:{required:"Email is required",
+  pattern:{
+    value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+      message:"Invalid Email"
+  }},
+  password:{required: "Password is required",
+  minLength:{
+    value:8,
+    message:'Password should be atleast 8 characters'
+}},
+confirmPassword:{required: "Confirm password is required",
+     validate: (value) => value ===password.current || "Confirm password do not match with above password"
+}
+
+}
+  const activateRegister = (e) => {
+    e.preventDefault();
+    document.querySelector(".login-box").style.opacity = "0.2";
+    document.getElementById("register-dialog").removeAttribute("hidden");
+    document.querySelector(".auth-dialog").style.background = "rgba(0, 0, 0, 0.6)";
+  }
+  const closeRegisterDialog = (e)=>{
+    e.preventDefault();
+    document.querySelector(".login-box").style.opacity = "1"
+    document.getElementById("register-dialog").setAttribute("hidden","hidden");
+    document.querySelector(".auth-dialog").style.background = "";
+  }
   return (
     <div className='auth-dialog'>
       <div className="login-box">
@@ -9,7 +71,7 @@ export const Authentication = () => {
           <img id="logo-img" src="logo.png" alt="logo" />
         </div>
         <div className="fw-bold text-secondary text-center mt-2 translate-head">A place to share knowledge and better understand the world</div>
-        <div className="grid-container container">
+        <div className="grid-container">
           <div className="row">
             <div className="col-6">
               <p className='text-secondary small-text terms-text'>By continuing you indicate that you agree to Quora’s Terms of Service and Privacy Policy.</p>
@@ -28,42 +90,46 @@ export const Authentication = () => {
                 </button>
               </div>
               <div className=' mt-2 text-center email-login'>
-                <button type='button' className='btn small-text fw-bold text-secondary'>Sign up with email</button>
+                <button type='button' className='btn small-text fw-bold text-secondary' onClick={(e) => activateRegister(e)}>Sign up with email</button>
               </div>
             </div>
             <div className="col-6">
               <div className='login-area-header bold-text'>Login</div>
-              <form className='mt-2'>
-                <div className="mb-3">
-                  <label for="inputEmail" className="form-label bold-text">Email</label>
-                  <input type="email" className="form-control" id="inputEmail" aria-describedby="emailHelp" />
+              <form className='mt-2' onSubmit={handleSubmit(fulFillLogin,handleLoginErrors)}>
+                <div className="mb-1">
+                  <label htmlFor="inputEmail" className="form-label bold-text">Email</label>
+                  <input type="text" className="form-control" id="inputEmail" aria-describedby="emailHelp" name="email"
+                  {...register("email",requiredOptions.email)}/>
+                  <small className='small-text text-danger'>{errors?.email && errors.email.message}</small>
                 </div>
-                <div className="mb-3">
-                  <label for="inputPassword" className="form-label bold-text">Password</label>
-                  <input type="password" className="form-control" id="inputPassword" />
+                <div className="mb-1">
+                  <label htmlFor="inputPassword" className="form-label bold-text">Password</label>
+                  <input type="password" className="form-control" id="inputPassword" name="loginPassword"
+                  {...register("loginPassword",requiredOptions.loginPassword)}/>
+                  <small className='small-text text-danger'>{errors?.loginPassword && errors.loginPassword.message}</small>
                 </div>
                 <div className="d-flex justify-content-between form-footer-buttons">
-                    <div className='link-fgtPwd small-text text-secondary'>Forgot password?</div>
-                    <div>
-                      <button type="submit" className="btn btn-primary login-submit" disabled>Login</button>
-                    </div>
+                  <div className='link-fgtPwd small-text text-secondary'>Forgot password?</div>
+                  <div>
+                    <button type="submit" className="btn btn-primary login-submit">Login</button>
+                  </div>
                 </div>
               </form>
             </div>
           </div>
-          <hr id="ruler"/>
+          <hr id="ruler" />
           <div className='d-flex justify-content-center language-box'>
             <div className='text-primary'>
               <span className='small-text'>Espanol</span>
               <span className='text-secondary ms-1'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
               </svg>
               </span>
             </div>
             <div className='text-primary ms-1'>
               <span className='small-text'>French</span>
               <span className='text-secondary ms-1'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
               </svg>
               </span>
             </div>
@@ -130,6 +196,43 @@ export const Authentication = () => {
             <span className='text-secondary'>© Quora, Inc. {new Date().getFullYear()}</span>
           </div>
         </footer>
+      </div>
+      <div id="register-dialog" hidden>
+        <div className='upper-navButton d-flex justify-content-start mb-4' onClick={(e)=>closeRegisterDialog(e)}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg" viewBox="0 0 16 16">
+              <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+        </svg>
+        </div>
+        <div className='fw-bold text-header mb-3'>Sign Up</div>
+        <form onSubmit={handleSubmit2(fulFillRegistration,handleRegistrationErrors)}>
+          <div className="mb-1">
+            <label htmlFor="inputNameRegister" className="form-label fw-bold">Name</label>
+            <input type="email" className="form-control" id="inputNameRegister" aria-describedby="emailHelp" 
+            placeholder='What would you like to be called?' name="userName" {...register2("userName",registerOptions.userName)}/>
+            <small className='small-text text-danger'>{errors2?.userName && errors2.userName.message}</small>
+          </div>
+          <div className="mb-1">
+            <label htmlFor="inputEmailRegister" className="form-label fw-bold">Email</label>
+            <input type="text" className="form-control" id="inputEmailRegister"
+            placeholder='Your email' name="email" {...register2("email",registerOptions.email)}/>
+            <small className='small-text text-danger'>{errors2?.email && errors2.email.message}</small>
+          </div>
+          <div className="mb-1">
+            <label htmlFor="inputPasswordRegister" className="form-label fw-bold">Password</label>
+            <input type="password" className="form-control" id="inputPasswordRegister"
+            placeholder='Set new password' name="password" {...register2("password",registerOptions.password)}/>
+            <small className='small-text text-danger'>{errors2?.password && errors2.password.message}</small>
+          </div>
+          <div className="mb-1">
+            <label htmlFor="inputConfirmPasswordRegister" className="form-label fw-bold">Confirm Password</label>
+            <input type="password" className="form-control" id="inputConfirmPasswordRegister"
+            placeholder='Confirm your password' name="confirmPassword" {...register2("confirmPassword",registerOptions.confirmPassword)}/>
+            <small className='small-text text-danger'>{errors2?.confirmPassword && errors2.confirmPassword.message}</small>
+          </div>
+          <div id="register-footer" className='d-flex justify-content-end mt-4'>
+            <button type="submit" className="btn btn-primary">Register</button>
+          </div>
+        </form>
       </div>
     </div>
   )

@@ -1,16 +1,22 @@
 body{
     background: url(https://qsf.fs.quoracdn.net/-4-ans_frontend_assets.images.home_page_bg_desktop.png-26-4770753d59b970e1.png);
-    height: 100vh;
+}
+
+.auth-dialog{
+    position: fixed;
+    overflow-y: scroll;
+    width:100vw;
+    height:100vh;
 }
 
 .login-box{
-    margin-top: 3rem;
+    transform:translateY(3rem);
     background-color: white;
     border-radius: 0.5rem;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     width:45rem;
-    height: 30rem;
+    height: 32.5rem;
     position: relative;
     left:26%;
     z-index: 2;
@@ -54,6 +60,7 @@ body{
 .alt-login button:hover{
     background-color: #e6e6e6;
 }
+
 /* Login area */
 .login-area-header{
     padding-bottom:0.3rem;
@@ -66,7 +73,6 @@ body{
 }
 
 .language-box{
-    /* border-top:1px solid #e6e6e6; */
     transform: translateY(-0.3rem);
 }
 
@@ -92,6 +98,29 @@ body{
     top:21%;
 }
 
+/* Register dilaog */
+#register-dialog{
+    padding:1rem;
+    background-color: white;
+    border-radius: 1rem;
+    width:40rem;
+    height:auto;
+    margin:0 auto;
+    position: relative;
+    bottom:27rem;
+    z-index: 5;
+}
+.text-header{
+    font-size: 1.2rem;
+}
+
+#register-footer button{
+    border-radius: 1.5rem;
+}
+
+.upper-navButton{
+    cursor:pointer;
+}
 /* Responsiveness */
 @media(max-width:1053px){
     .login-box{
@@ -111,6 +140,9 @@ body{
     .login-box{
         position:relative;
         left:5%;
+    }
+    #register-dialog{
+        width:37rem;
     }
 }
 
@@ -137,33 +169,140 @@ body{
     .email-login{
         transform:translateX(-1.5rem);
     }
+    #register-dialog{
+        width:32rem;
+    }
 
 }
 
-@media(max-width:450px){
+@media(max-width:665px){
+    .login-box,.row{
+        width:35rem;
+    }
+    #footer div svg{
+        display:none;
+    }
+   
+}
+
+@media(max-width:618px){
+    .terms-text{
+        width:30rem;
+        white-space: normal;
+    }
     .row{
         display:flex;
         flex-direction: column-reverse;
+        margin:0;
+    }
+    .alt-login{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .login-box,.row{
+        width:34rem;
     }
     .login-box{
-        height: 40rem;
         margin:inhert auto;
+        height:41rem;
     }
     .row .col-6{
         width:inherit;
     }
     .row .col-6:nth-child(1){
         margin-top: 1rem;
+        border:none;
     }
-    .terms-text{
-        width:50rem;
+    #footer{
+        top:15%;
     }
-    .alt-login{
-        display: flex;
-        justify-content: space-evenly;
+    .language-box{
+        width:inherit;
+    }
+    #ruler{
+        width:inherit;
+    }
+    #footer div svg{
+        display:none;
+    }
+    #register-dialog{
+        bottom:30rem;
     }
 
+}
+
+@media(max-width:587px){
+    
+    .login-box{
+        width:25rem;
+        height: 45rem;
+        margin:inhert auto;
+        transform:translateX(3rem);
+    }
+    .row{
+        width:inherit;
+    }
+    .row .col-6{
+        width:inherit;
+    }
+    .terms-text{
+        width:20rem;
+        white-space: normal;
+    }
+    .alt-login button{
+        font-size: 0.75rem;
+        margin:0.45rem;
+    }
     #footer{
         top:16%;
+    }
+    #footer div svg{
+        display:none;
+    }
+    #footer div{
+        margin:0.1rem;
+        font-size: 0.5rem;
+    }
+    #register-dialog{
+        width:20rem;
+        bottom:35rem;
+    }
+}
+
+@media(max-width:415px){
+    .login-box{
+        width:20rem;
+        height: 45rem;
+        margin:inhert auto;
+        transform:translateX(2rem);
+    }
+    .row{
+        width:inherit;
+    }
+    .row .col-6{
+        width:inherit;
+    }
+    .terms-text{
+        width:15rem;
+        white-space: normal;
+    }
+    .alt-login button{
+        font-size: 0.55rem;
+        margin:0.45rem;
+    }
+    #footer{
+        top:15%;
+    }
+    #footer div svg{
+        display:none;
+    }
+    #footer div{
+        margin:0.05rem;
+        font-size: 0.5rem;
+    }
+}
+@media(max-width:390px){
+    .login-box{
+        transform:translateX(0.8rem); 
     }
 }
