@@ -42,7 +42,7 @@ export const Navbar = (props) => {
         <>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
+                    <a className="navbar-brand" href="/homepage">
                         <img id="pri-logo" src="logo.png" alt="quora-logo" />
                     </a>
                     {/* Profile icon displayed on lower screen resolution */}

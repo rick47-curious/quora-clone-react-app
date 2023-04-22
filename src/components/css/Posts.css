@@ -1,0 +1,117 @@
+.post-section .container{
+    width:inherit;
+}
+.row{
+    flex-wrap: nowrap;
+}
+#space-section{
+    padding:0;
+    height: auto;
+}
+
+#user-post-section{
+    height: 30rem;
+}
+
+#suggestion-section{
+    height: 27.5rem;
+    padding:0;
+    border-radius: 0.6rem;
+    background-color: white;
+}
+
+/* Space section */
+.space-list{
+    padding:0;
+}
+.space-list li{
+    padding: 0.65rem 0.5rem;
+}
+.space-list li:hover{
+    background-color: #dfdede;
+    cursor:pointer;
+}
+#add-space{
+    width:1.65rem;
+    height: 1.65rem;
+    background-color: #dfdede;
+    
+}
+#add-space svg{
+    transform:translate(-0.5rem,-0.5rem);
+}
+/* Suggestion section */
+#suggestion-section .head{
+    font-size: 1.1rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.suggestion-list{
+    padding:0;
+}
+.suggestion-list li{
+    border-bottom: 1px solid #e6e6e6;
+}
+.suggestion-list li:hover{
+    background-color: #dfdede;
+    cursor:pointer; 
+}
+.sugg-logo{
+    position:relative;
+    bottom:1.2rem;
+}
+.sugg-desc{
+    overflow:hidden;
+    max-height: 2.5rem;
+    line-height: 1.2rem;
+    text-overflow: ellipsis;  
+}
+
+/* Post input */
+.profile-pic{
+    width:2rem;
+    height: 2rem;
+    border: 2px solid grey;
+    border-radius:50%;
+    
+}
+
+.container-create{
+    width:100%;
+    padding:0.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+#post-input{
+    background-color: #f3f0f0;
+    border-radius: 1.5rem;
+    width:35rem;
+}
+
+.footer-buttons{
+    background-color: white;
+}
+.footer-buttons button{
+    width:33.33%;
+    border-radius: 0;
+}
+.seperator{
+    width:1px;
+    height:1.2rem;
+    background-color: #cecbcb;
+    margin: 0 10px;
+    align-self: stretch;
+    transform: translateY(1rem);    
+}
+
+/* Individual post */
+.individualPosts{
+    border-radius: 0.5rem;
+    background-color: white;
+    padding:1rem;
+}
+.post-logo{
+    width:2rem;
+    height:2rem;
+    transform:translateY(0.5rem)
+}

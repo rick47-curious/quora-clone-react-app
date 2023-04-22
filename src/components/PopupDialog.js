@@ -86,6 +86,14 @@ export const PopupDialog = (props) => {
     props.setActive("close");
     props.makeOpaque(1);
   }
+  const enableSubmit= (e)=>{
+    e.preventDefault();
+    document.getElementById("submitQuestion").removeAttribute("disabled");
+  }
+  const enablePostSubmit = (e)=>{
+    e.preventDefault();
+    document.getElementById("SubmitPost").removeAttribute("disabled");
+  }
   return (
     <div>
       {props.userAction!=="close"?(
@@ -177,21 +185,21 @@ export const PopupDialog = (props) => {
             <img id="user-pic" src="https://media.istockphoto.com/id/1147108546/photo/single-tree-with-clipping-path-and-alpha-channel.jpg?s=612x612&w=0&k=20&c=rW4rKfPGgkCyJ0Vp4PO1IfymowySIiFjFs1cCXJj3dU=" alt="profile-pic" />
           </div>
           <div className='ms-2'>
-            <div className="username fw-bold">Anuplab Chatterjee</div>
-            <div className="credentials">Junior Techie (2020 - Present)</div>
+            <div className="username fw-bold">UserName</div>
+            <div className="credentials">Credentials</div>
           </div>
         </div>
         ):(<></>)}
         {props.userAction === "Add Questions"?(
           <div className="my-1 mx-2 postorquesArea">
-          <textarea className="form-control" id="question-area" rows="3" placeholder='Start your question with "What", "How", "Why", etc.'>
+          <textarea className="form-control" onInput={enableSubmit} id="question-area" rows="3" placeholder='Start your question with "What", "How", "Why", etc.'>
           </textarea>
         </div>
         ):(<></>)}
         {props.userAction === "Create Post"?(
           <div className="my-2 mx-2 postorquesArea">
           <div id="post-area" >
-            <textarea type="text" name="text-post" id="text-post" placeholder='Say something...'></textarea>
+            <textarea type="text" name="text-post" onInput={enablePostSubmit} id="text-post" placeholder='Say something...'></textarea>
             <div className=' my-4 image-container'>{showImages()}</div>
           </div>
         </div>
@@ -200,7 +208,7 @@ export const PopupDialog = (props) => {
         {props.userAction === "Add Questions"?(
           <div className='d-flex justify-content-end'>
               <button type="button" className="btn cancel-btn" onClick={(e)=>closePopup()}>Cancel</button>
-              <button type="button" className="btn btn-primary submit-btn" disabled>Add question</button>  
+              <button type="button" className="btn btn-primary submit-btn" id="submitQuestion" disabled>Add question</button>  
           </div>
           ):(<></>)}
           
@@ -215,7 +223,7 @@ export const PopupDialog = (props) => {
                   </svg>
                 </span>
                 </button>
-                <button type="button" className="btn btn-primary submit-btn" disabled>Post</button>  
+                <button type="button" className="btn btn-primary submit-btn" id="SubmitPost" disabled>Post</button>  
               </div>
             ):(<></>)}
         </footer>

@@ -1,6 +1,6 @@
 .main-dialog{
     width:50rem;
-    min-height:31rem;
+    height:36.5rem;
     margin-top: -5rem;
     background-color:white;
     border: 1px solid white;
@@ -78,10 +78,11 @@
 
 /* Popup Footer */
 .footer{
-    width:48rem;
+    width:inherit;
     height:3rem;
-    position: fixed;
-    bottom:8%;
+    position: relative;
+    top:16%;
+    right:8%;
 }
 
 .footer .btn{
@@ -164,6 +165,8 @@
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    position:relative;
+    left:10%;
 }
 .file-button input[type="file"] {
     position: absolute;
@@ -181,3 +184,67 @@
     font-size: 1.5rem;
   }
 
+/* Responsiveness */
+@media(max-width:991px){
+    #text-post{
+        width:39rem; 
+     }
+     .footer{
+        right:15%;
+     }
+     .file-button{
+        left:15%;
+     }
+}
+@media(max-width:984px){
+    .main-dialog{
+        width:42rem;
+    }
+    .footer{
+        right:10%;
+     }
+}
+@media(max-width:767px){
+    .main-dialog{
+        width:35rem;
+    }
+    #text-post{
+        width:28rem; 
+     }
+     .space-dropdown{
+        transform:translateX(10rem)
+     }
+}
+
+@media(max-width:576px){
+    .main-dialog{
+        width:27rem;
+    }
+    .space-dropdown{
+        transform:translateX(7rem)
+     }
+    #text-post{
+        width:22rem; 
+     }
+    .instruction-block h5{
+        font-size: 1rem;
+    }
+    .instruction-block ul li{
+        font-size: 0.8rem;
+    }
+    .footer{
+        top:20%;
+    }
+}
+
+@media(max-width:446px){
+    .main-dialog{
+        width:22rem;
+    } 
+    .space-dropdown{
+        transform:translateX(4rem)
+     }
+    #text-post{
+        width:18rem; 
+     }
+}
