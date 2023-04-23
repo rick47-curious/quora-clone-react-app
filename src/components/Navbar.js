@@ -1,19 +1,17 @@
-import React from 'react'
+import { useEffect } from 'react';
 import './css/Navbar.css'
 
 export const Navbar = (props) => {
-
     const makeActive = (e)=> {
-        e.preventDefault();
-        const clickedElement = e.currentTarget;
-
-        // Remove the "active" class from all elements with the class name ".icon-Link"
-        document.querySelectorAll(".icon-Link").forEach((ele) => {
-            ele.classList.remove("active");
-        });
+        // e.preventDefault();
+        const clickedElement = e.currentTarget.previousElementSibling.textContent;
+        window.localStorage.setItem("activated-item",clickedElement);
+        // // Remove the "active" class from all elements with the class name ".icon-Link"
+        // document.querySelectorAll(".icon-Link").forEach((ele) => {
+        //     ele.classList.remove("activated-header");
+        // });
 
         // Add the "active" class to the clicked element
-        clickedElement.classList.add("active");
     }
     const activateHoverHelp = (e)=>{
         e.preventDefault();
@@ -37,7 +35,26 @@ export const Navbar = (props) => {
             document.querySelector(".navbar").style.opacity = "1";
         }
     }
+    const handleActivation = ()=>{
+        const elementName = window.localStorage.getItem("activated-item");
+        console.log(elementName);
+        if (elementName === "Home")
+            document.querySelectorAll(".icon-Link")[0].classList.add("activated-header");
+        else if (elementName === "Following")
+            document.querySelectorAll(".icon-Link")[1].classList.add("activated-header");
+        else if (elementName === "Q&A")
+            document.querySelectorAll(".icon-Link")[2].classList.add("activated-header");
+        else if (elementName === "Spaces")
+            document.querySelectorAll(".icon-Link")[3].classList.add("activated-header");
+        else if (elementName === "Notification")
+            document.querySelectorAll(".icon-Link")[4].classList.add("activated-header");
+        
+        window.localStorage.clear();
+    }
     opacityHandler();
+   useEffect(()=>{
+    handleActivation();
+   },[])
     return (
         <>
             <nav className="navbar navbar-expand-lg">
