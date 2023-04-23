@@ -136,8 +136,8 @@ export const Posts = (props) => {
   return (
     <div>
       <div className='my-5 post-section'>
-        <div className="container text-centered">
-          <div className="row">
+        <div className="container text-centered" id="post-container">
+          <div className="row" id="post-row">
             <div className="col-2 me-4" id="space-section">
               <ul className="space-list">
                 <li className='d-flex'>

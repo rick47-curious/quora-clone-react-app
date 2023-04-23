@@ -1,5 +1,6 @@
 .post-section .container{
     width:inherit;
+    
 }
 .row{
     flex-wrap: nowrap;
@@ -14,7 +15,7 @@
 }
 
 #suggestion-section{
-    height: 27.5rem;
+    height: 28rem;
     padding:0;
     border-radius: 0.6rem;
     background-color: white;
@@ -82,10 +83,13 @@
     background-color: white;
     border-radius: 0.5rem;
 }
+.input-container{
+    width:100%;
+}
 #post-input{
     background-color: #f3f0f0;
     border-radius: 1.5rem;
-    width:35rem;
+    width:inherit;
 }
 
 .footer-buttons{
@@ -155,4 +159,69 @@
 }
 .upvote-button{
     border-right: 2px solid #cecccc;
+}
+/* Responsiveness */
+@media(max-width:1199px){
+    .post-section .container{
+        margin:0 3rem;    
+    }
+    #space-section{
+        width:11rem;
+    }
+    #user-post-section{
+        width:32rem;
+    }
+    #suggestion-section{
+        width:18rem;
+    }
+}
+
+@media(max-width:1071px){
+    #space-section{
+        width:9rem;
+    }
+    #user-post-section{
+        width:28rem;
+    }
+    #suggestion-section{
+        width:15rem;
+    }
+}
+@media(max-width:931px){
+    .post-section .container{
+        margin:0 1rem;    
+    }
+}
+@media(max-width:895px){
+    #space-section{
+        display: none; 
+    }
+    #suggestion-section{
+       display: none;
+    }
+    #user-post-section{
+        width:80%;
+        transform: translateX(4rem);
+    }
+    .post-section .container{
+        margin:0 auto;    
+    }
+}
+@media(max-width:767px){
+    #user-post-section{
+        width:80%;
+        transform: translateX(2rem);
+    }
+}
+@media(max-width:623px){
+    #post-container,#post-row{
+        min-width: 20rem;
+    }
+    #user-post-section{
+        min-width: 23rem;
+        transform:translateX(-0.5rem);
+    }
+    .footer-buttons{
+        height: 4rem;
+    }
 }

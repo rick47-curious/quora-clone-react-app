@@ -56,35 +56,35 @@ export const Navbar = (props) => {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item mx-1">
                                 <span className='toggle-view'>Home</span>
-                                <a className="nav-link icon-Link px-3" aria-current="page" href="#" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
+                                <a className="nav-link icon-Link px-3" aria-current="page" href="/homepage" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
                                     <img className="nav-img" src="house-door.svg" alt="home" />
                                 </a>
                                 <span className="badge rounded-pill text-secondary hover-help">Home</span>
                             </li>
                             <li className="nav-item mx-1">
                                 <span className='toggle-view'>Following</span>
-                                <a className="nav-link icon-Link px-3" href="#" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
+                                <a className="nav-link icon-Link px-3" href="/homepage" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
                                     <img className="nav-img" src="card-checklist.svg" alt="q&a" />
                                 </a>
                                 <span className="badge rounded-pill text-secondary hover-help">Following</span>
                             </li>
                             <li className="nav-item mx-1">
                                 <span className='toggle-view'>Q&A</span>
-                                <a className="nav-link icon-Link px-3" href="#" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
+                                <a className="nav-link icon-Link px-3" href="/homepage" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
                                     <img className="nav-img" src="pencil-square.svg" alt="answer" />
                                 </a>
                                 <span className="badge rounded-pill text-secondary hover-help">Answer</span>
                             </li>
                             <li className="nav-item mx-1">
                                 <span className='toggle-view'>Spaces</span>
-                                <a className="nav-link icon-Link px-3" href="#" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
+                                <a className="nav-link icon-Link px-3" href="/homepage" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
                                     <img className="nav-img" src="people.svg" alt="follow" />
                                 </a>
                                 <span className="badge rounded-pill text-secondary hover-help">Spaces</span>
                             </li>
                             <li className="nav-item mx-1">
                                 <span className='toggle-view'>Notification</span>
-                                <a className="nav-link icon-Link px-3" href="#" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
+                                <a className="nav-link icon-Link px-3" href="/notification" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
                                     <img className="nav-img" src="bell.svg" alt="notification" />
                                 </a>
                                 <span className="badge rounded-pill text-secondary hover-help">Notification</span>
