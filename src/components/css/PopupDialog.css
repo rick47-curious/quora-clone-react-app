@@ -5,7 +5,9 @@
     background-color:white;
     border: 1px solid white;
     border-radius: 1rem;
-    position:relative;
+    position:absolute;
+    bottom:8%;
+    left:20%;
     z-index:5;
 }
 .section-header > div{

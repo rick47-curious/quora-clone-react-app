@@ -101,6 +101,10 @@ span.toggle-view:hover{
     padding:0.3rem;
     background-color: #e6e6e6;
 }
+
+.create-post-menu li:hover{
+    cursor:pointer;
+}
 /* Responsiveness */
 @media(max-width:1310px){
     .navbar{
