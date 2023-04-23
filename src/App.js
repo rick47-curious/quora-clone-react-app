@@ -5,13 +5,12 @@ import { HomePage } from './pages/HomePage';
 import { Authentication } from './pages/Authentication';
 
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route element={<Authentication/>} path='/'/>
-          <Route element={<HomePage/>} path='/homepage'/>
+          <Route path='/' element={<Authentication/>}/>
+          <Route path='/homepage' element={<HomePage/>}/>
         </Routes>
       </BrowserRouter>
     </div>
