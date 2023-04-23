@@ -101,7 +101,7 @@ export const Navbar = (props) => {
                             </li>
                             <li className="nav-item mx-1">
                                 <span className='toggle-view'>Notification</span>
-                                <a className="nav-link icon-Link px-3" href="/notification" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
+                                <a className="nav-link icon-Link px-3" href="/homepage" onClick={(e) => makeActive(e)} onMouseOver={(e)=>activateHoverHelp(e)}>
                                     <img className="nav-img" src="bell.svg" alt="notification" />
                                 </a>
                                 <span className="badge rounded-pill text-secondary hover-help">Notification</span>
